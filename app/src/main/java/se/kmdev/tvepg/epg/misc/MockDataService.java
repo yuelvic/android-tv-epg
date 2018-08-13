@@ -37,11 +37,11 @@ public class MockDataService {
     );
 
     private static List<String> availableChannelLogos = Lists.newArrayList(
-            "http://kmdev.se/epg/1.png",
-            "http://kmdev.se/epg/2.png",
-            "http://kmdev.se/epg/3.png",
-            "http://kmdev.se/epg/4.png",
-            "http://kmdev.se/epg/5.png"
+            "https://www.logolynx.com/images/logolynx/a0/a09be336db8c1df9a54df89e1d55da8f.jpeg",
+            "https://www.logolynx.com/images/logolynx/a0/a09be336db8c1df9a54df89e1d55da8f.jpeg",
+            "https://www.logolynx.com/images/logolynx/a0/a09be336db8c1df9a54df89e1d55da8f.jpeg",
+            "https://www.logolynx.com/images/logolynx/a0/a09be336db8c1df9a54df89e1d55da8f.jpeg",
+            "https://www.logolynx.com/images/logolynx/a0/a09be336db8c1df9a54df89e1d55da8f.jpeg"
     );
 
     public static Map<EPGChannel, List<EPGEvent>> getMockData() {

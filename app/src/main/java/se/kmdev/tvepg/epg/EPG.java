@@ -53,6 +53,7 @@ public class EPG extends ViewGroup {
     private final int mChannelLayoutHeight;
     private final int mChannelLayoutWidth;
     private final int mChannelLayoutBackground;
+    private final int mEventLayoutTimeBackground;
     private final int mEventLayoutBackground;
     private final int mEventLayoutBackgroundCurrent;
     private final int mEventLayoutTextColor;
@@ -113,7 +114,9 @@ public class EPG extends ViewGroup {
         mChannelLayoutPadding = getResources().getDimensionPixelSize(R.dimen.epg_channel_layout_padding);
         mChannelLayoutHeight = getResources().getDimensionPixelSize(R.dimen.epg_channel_layout_height);
         mChannelLayoutWidth = getResources().getDimensionPixelSize(R.dimen.epg_channel_layout_width);
-        mChannelLayoutBackground = getResources().getColor(R.color.epg_channel_layout_background);
+        mChannelLayoutBackground = getResources().getColor(R.color.epg_day_layout_background);
+
+        mEventLayoutTimeBackground = getResources().getColor(R.color.epg_time_layout_background);
 
         mEventLayoutBackground = getResources().getColor(R.color.epg_event_layout_background);
         mEventLayoutBackgroundCurrent = getResources().getColor(R.color.epg_event_layout_background_current);
@@ -220,11 +223,11 @@ public class EPG extends ViewGroup {
         canvas.clipRect(mClipRect);
 
         // Background
-        mPaint.setColor(mChannelLayoutBackground);
+        mPaint.setColor(mEventLayoutTimeBackground);
         canvas.drawRect(drawingRect, mPaint);
 
         // Time stamps
-        mPaint.setColor(mEventLayoutTextColor);
+        mPaint.setColor(mEventLayoutBackground);
         mPaint.setTextSize(mTimeBarTextSize);
 
         for (int i = 0; i < HOURS_IN_VIEWPORT_MILLIS / TIME_LABEL_SPACING_MILLIS; i++) {
@@ -255,7 +258,7 @@ public class EPG extends ViewGroup {
         canvas.drawRect(drawingRect, mPaint);
 
         // Text
-        mPaint.setColor(mEventLayoutTextColor);
+        mPaint.setColor(mEventLayoutBackground);
         mPaint.setTextSize(mTimeBarTextSize);
         mPaint.setTextAlign(Paint.Align.CENTER);
         canvas.drawText(EPGUtil.getWeekdayName(mTimeLowerBoundary),
@@ -355,7 +358,7 @@ public class EPG extends ViewGroup {
         mMeasuringRect.right = drawingRect.left + mChannelLayoutWidth;
         mMeasuringRect.bottom = mMeasuringRect.top + getHeight();
 
-        mPaint.setColor(mChannelLayoutBackground);
+        mPaint.setColor(mEventLayoutBackground);
         canvas.drawRect(mMeasuringRect, mPaint);
 
         final int firstPos = getFirstVisibleChannelPosition();
